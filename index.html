@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Mi Lista de Tareas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow-lg">
+      <h2 class="card-header text-center bg-info text-white">Mi Lista de Tareas</h2>
+      <div class="card-body">
+        <form id="taskForm" class="form-inline justify-content-center mb-3">
+          <div class="form-group mx-sm-3 mb-2">
+            <input type="text" id="taskInput" class="form-control form-control-lg" placeholder="Nueva tarea" required>
+          </div>
+          <button type="button" onclick="addTask()" class="btn btn-primary btn-lg">Agregar tarea</button>
+        </form>
+        <div class="form-group text-center">
+          <label for="taskFilter" class="h5">Filtrar por estado:</label>
+          <select id="taskFilter" onchange="filterTasks()" class="form-control form-control-lg">
+            <option value="all">Mostrar Todas</option>
+            <option value="active">Mostrar Activas</option>
+            <option value="completed">Mostrar Completadas</option>
+          </select>
+        </div>
+        <ul id="taskList" class="list-group"></ul>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

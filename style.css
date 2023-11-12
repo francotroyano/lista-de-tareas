@@ -1,0 +1,18 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.card {
+  margin-top: 50px;
+}
+
+#taskInput {
+  width: 70%;
+}
+
+@media (max-width: 576px) {
+  #taskInput {
+    width: 100%;
+  }
+  
+}
