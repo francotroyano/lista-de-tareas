@@ -30,6 +30,13 @@
       </div>
     </div>
   </div>
+  <footer class="bg-light text-center py-3">
+    <small>Fecha y hora actual: <span id="datetime"></span></small>
+  </footer>
   <script src="script.js"></script>
+  <script>
+    const datetime = document.getElementById("datetime");
+    datetime.innerHTML = new Date().toLocaleString();
+  </script>
 </body>
 </html>

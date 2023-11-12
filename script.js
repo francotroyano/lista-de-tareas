@@ -17,6 +17,7 @@ function addTaskToList(task) {
   let li = document.createElement('li');
   li.innerHTML = `
     <span class="task-text ${task.completed ? 'completed' : ''}">${task.text}</span>
+    ${task.completed ? `<span class="completed-date">${new Date(task.completedDate).toLocaleString()}</span>` : ''}
     <button onclick="toggleTask(${task.id})">${task.completed ? 'Desmarcar' : 'Marcar'}</button>
     <button onclick="deleteTask(${task.id})">Eliminar</button>
   `;
@@ -49,6 +50,11 @@ function toggleTask(taskId) {
 
   if (taskIndex !== -1) {
     tasks[taskIndex].completed = !tasks[taskIndex].completed;
+    if (tasks[taskIndex].completed) {
+      tasks[taskIndex].completedDate = Date.now();
+    } else {
+      tasks[taskIndex].completedDate = null;
+    }
     localStorage.setItem('tasks', JSON.stringify(tasks));
     loadTasks();
   }
@@ -81,10 +87,6 @@ function filterTasks() {
     addTaskToList(task);
   });
 }
-
-// ... (resto del código)
-
-// Agrega el siguiente bloque de código al final de script.js
 
 document.getElementById('taskInput').addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {
